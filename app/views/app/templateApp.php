@@ -60,7 +60,7 @@
             <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
                 <li class="ms-nav-item dropdown">
                     <a class="text-disabled dropdown-link" aria-current="page" href="<?= base_url('/users') ?>">
-                        <i class="fa fa-area-chart"></i>
+                        <i class="fa fa-window-restore"></i>
                         Convocatorias
                     </a>
                 </li>
@@ -68,20 +68,20 @@
                 if ($this->session->userdata('user_rol') == 'estudiante') {
                     echo '<li class="ms-nav-item dropdown">';
                     echo '<a class="text-disabled dropdown-link" aria-current="page" href="' . base_url('/users/postulaciones') . '">';
-                    echo '   <i class="fa fa-id-badge"></i>';
+                    echo '   <i class="fa fa-check-square"></i>';
                     echo '    Mis postulaciones';
                     echo '</a>';
                     echo '</li>';
 
                     echo '<li class="ms-nav-item dropdown">';
                     echo '<a class="text-disabled dropdown-link" href="' . base_url('/users/perfil') . '">';
-                    echo '    <i class="fa fa-id-card-o"></i>';
+                    echo '    <i class="fa fa-id-badge"></i>';
                     echo '    Mi perfil</a>';
                     echo '</li>';
 
                     echo '<li class="ms-nav-item dropdown">';
                     echo '<a class="text-disabled dropdown-link" href="' . base_url('/users/descarga_cv') . '">';
-                    echo '    <i class="fa fa-file-word-o"></i>';
+                    echo '    <i class="fa fa-file-word"></i>';
                     echo '    Modelo CV</a>';
                     echo '</li>';
                 } else {

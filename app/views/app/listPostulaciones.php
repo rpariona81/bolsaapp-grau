@@ -44,7 +44,7 @@
                                 } else {
                                     //echo '<a class="btn btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="' . $item->filecv . '" href="' . base_url('/uploads/filescv/' . $item->filecv) . '"><i class="fa fa-file-pdf-o" title="' . $item->filecv . '"></i></a>';
                                     echo '<a class="btn-outline-danger btn-get-started scrollto"  data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="' . $item->filecv . '" href="' . base_url('/uploads/filescv/' . $item->filecv) . '">
-                                                <i class="fa fa-file-pdf-o" aria-hidden="true" title="' . $item->filecv . '"></i>' . $item->filecv;
+                                                <i class="fa fa-file-pdf" aria-hidden="true" title="' . $item->filecv . '"></i>' . $item->filecv;
                                 }
                                 ?>
                             </td>

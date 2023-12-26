@@ -1,2 +1,2 @@
 # bolsa-irrp
-Bolsa laboral actualizada IES RRP
+Bolsa laboral actualizada IEST AMG

@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid mt-3 mb-3">
+<div class="jumbotron jumbotron-fluid mt-3 mb-3 border border-1 p-1">
     <div class="container-fluid mb-5">
         <br />
         <h1 class="display-4">Panel de administración</h1>

@@ -10,28 +10,41 @@
     <meta name="description" content="Material Pro is powerful and clean admin dashboard template" />
     <meta name="robots" content="noindex,nofollow" />
     <title><?= getenv('APP_NAME') ?></title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/img/app/logo_2023.png') ?>">
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="<?= base_url('public/datatable/css/bootstrap.min.css') ?>" />
+    <!-- Iconic Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="<?= base_url('public/vendors/iconic-fonts/font-awesome/css/all.min.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('public/vendors/iconic-fonts/flat-icons/flaticon.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('public/vendors/iconic-fonts/cryptocoins/cryptocoins.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('public/vendors/iconic-fonts/cryptocoins/cryptocoins-colors.css') ?>">
 
-    <link rel="stylesheet" href="<?= base_url('public/datatable/css/dataTables.bootstrap5.min.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('public/datatable/css/buttons.bootstrap5.min.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('public/datatable/css/responsive.bootstrap5.min.css') ?>" />
+    <!-- Bootstrap core CSS -->
+    <link href="<?= base_url('public/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <!-- jQuery UI -->
+    <link href="<?= base_url('public/css/jquery-ui.min.css') ?>" rel="stylesheet">
+    <!-- Page Specific CSS (Slick Slider.css) -->
+    <link href="<?= base_url('public/css/slick.css') ?>" rel="stylesheet">
+    <!-- Page Specific Css (Datatables.css) -->
+    <!--<link href="<?= base_url('public/css/datatables.min.css') ?>" rel="stylesheet">-->
+    <!-- DataTables -->
+    <link href="<?= base_url('public/datatable/css/datatables.bootstrap4.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('public/datatable/css/buttons.bootstrap.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('public/datatable/css/buttons.dataTables.min.css') ?>" rel="stylesheet" type="text/css">
 
-    <link href="<?= base_url('public/css/styles.css') ?>" rel="stylesheet" />
-    <link href="<?= base_url('public/css/mystyle.css') ?>" rel="stylesheet" />
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>-->
-    <link href="<?= base_url('public/font-awesome/4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <!-- -------------------------------------------------------------- -->
-    <!-- All Required js -->
-    <!-- -------------------------------------------------------------- -->
-    <!-- JavaScript Libraries -->
-    <script src="<?= base_url('public/datatable/js/bootstrap.bundle.min.js') ?>"></script>
+    <!-- Responsive datatable examples -->
+    <link href="<?= base_url('public/datatable/css/responsive.datatables.min.css') ?>" rel="stylesheet" type="text/css">
+    <!-- Mystic styles -->
+    <link href="<?= base_url('public/css/style.css') ?>" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('public/favicon.ico') ?>">
 
-    <script src="<?= base_url('public/js/scripts.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/jquery-3.7.0.js') ?>"></script>
+    <!-- SCRIPTS -->
+    <!-- Global Required Scripts Start -->
+    <script src="<?= base_url('public/js/jquery-3.5.1.min.js') ?>"></script>
+    <script src="<?= base_url('public/js/popper.min.js') ?>"></script>
+    <script src="<?= base_url('public/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('public/js/perfect-scrollbar.js') ?>"> </script>
+    <script src="<?= base_url('public/js/jquery-ui.min.js') ?>"> </script>
 
     <script src="<?= base_url('public/tinymce/tinymce.min.js') ?>"></script>
     <script>
@@ -46,151 +59,179 @@
 
 </head>
 
-<body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-warning">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3 text-dark" href="<?=base_url('/admin')?>"><strong><?= getenv('APP_NAME') ?></strong></a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-dark" id="sidebarToggle" href="#!"><i class="fa fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!--<div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fa fa-search"></i></button>
-            </div>-->
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <strong><?= $this->session->userdata('user_rol_title') ?></strong>&nbsp;<i class="fa fa-user fa-fw"></i>
-                </a>
+<body class="ms-body ms-primary-theme ms-aside-left-open">
 
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="<?=base_url('/admin/perfil')?>"><i class="fa fa-user-secret"></i>
-                            Mi perfil</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url('/admin/claves')?>"><i class="fa fa-key" aria-hidden="true"></i>
-                            Cambio de clave</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="<?=base_url('/logout')?>"><i class="fa fa-sign-out" aria-hidden="true"></i>
-                            Cerrar sesión</a></li>
-                </ul>
+    <!-- Preloader -->
+    <div id="preloader-wrap">
+        <div class="spinner spinner-8">
+            <div class="ms-circle1 ms-child"></div>
+            <div class="ms-circle2 ms-child"></div>
+            <div class="ms-circle3 ms-child"></div>
+            <div class="ms-circle4 ms-child"></div>
+            <div class="ms-circle5 ms-child"></div>
+            <div class="ms-circle6 ms-child"></div>
+            <div class="ms-circle7 ms-child"></div>
+            <div class="ms-circle8 ms-child"></div>
+            <div class="ms-circle9 ms-child"></div>
+            <div class="ms-circle10 ms-child"></div>
+            <div class="ms-circle11 ms-child"></div>
+            <div class="ms-circle12 ms-child"></div>
+        </div>
+    </div>
+    <!-- Overlays -->
+    <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+
+    <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left ps ps--active-y">
+        <!-- Logo -->
+        <div class="logo-sn ms-d-block-lg">
+            <a class="pl-0 ml-0 text-center" href="<?= base_url('/admin') ?>"> <img src="<?= base_url('public/img/logo_grau.png') ?>" alt="logo"> </a>
+        </div>
+        <!-- Navigation -->
+        <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+            <!-- Dashboard -->
+            <li class="menu-item">
+                <a href="<?= base_url('/admin') ?>" class="nav-link">
+                    <span><i class="material-icons fs-16">dashboard</i>Panel de control </span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/estudiantes') ?>">
+                    <span><i class="material-icons fs-16">widgets</i>Estudiantes </span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/docentes') ?>">
+                    <span><i class="material-icons fs-16">assignment_ind</i>Docentes</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/convocatorias') ?>">
+                    <span><i class="material-icons fs-16">assessment</i>Convocatorias</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/postulaciones') ?>">
+                    <span><i class="material-icons fs-16">filter_list</i>Postulaciones</span>
+                </a>
+            </li>
+            <hr>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/perfil') ?>">
+                    <span><i class="material-icons fs-16">input</i>Mi perfil</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/admin/programas') ?>">
+                    <span><i class="material-icons fs-16">apps</i>Programas</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="nav-link" href="<?= base_url('/logout') ?>">
+                    <span><i class="material-icons fs-16">arrow_back</i>Cerrar sesión</span>
+                </a>
             </li>
         </ul>
-    </nav>
+    </aside>
+    <!-- Main Content -->
+    <main class="body-content">
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-light bg-kadence" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <!--<div class="sb-sidenav-menu-heading mx-3"><strong>Bolsa laboral</strong></div>-->
-                        <!--<a class="nav-link" href="/admin">
-                            <div class="sb-nav-link-icon"><i class="fa fa-tachometer"></i></div>
-                            Panel de control
-                        </a>-->
-                        <a class="nav-link" href="<?=base_url('/admin')?>">
-                            <img class="img login-logo rounded-circle" src="<?= base_url('public/img/app/logo_2023.png') ?>" height="150" width="150"/>
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/estudiantes')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-address-book"></i></div>Estudiantes
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/docentes')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>Docentes
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/convocatorias')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-area-chart"></i></div>Convocatorias
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/postulaciones')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-list-ul"></i></div>Postulaciones
-                        </a>
-                        <hr>
-                        <a class="nav-link" href="<?=base_url('/admin/perfil')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-user-secret"></i></div>Mi perfil
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/programas')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-gear"></i></div>Programas
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/admin/vermodelocv')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-file-word-o"></i></div>Modelo CV
-                        </a>
-                        <a class="nav-link" href="<?=base_url('/logout')?>" aria-expanded="false">
-                            <div class="sb-nav-link-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></div>Cerrar sesión
-                        </a>
+        <!-- Navigation Bar -->
+        <nav class="navbar ms-navbar">
 
-                    </div>
-                </div>
-            </nav>
-            <!-- End Sidebar navigation -->
-        </div>
-        <!-- End Sidebar scroll-->
+            <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+            </div>
+            <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+                <li class="ms-nav-item ms-nav-user dropdown">
+                    <a href="#" class="text-disabled" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <strong><?= $this->session->userdata('user_rol_title') ?></strong>&nbsp;<i class="flaticon-user"></i>
+                    </a>
 
+                    <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="<?= base_url('/admin/perfil') ?>"><i class="flaticon-information" aria-hidden="true"></i>
+                                &nbsp;Mi perfil</a>
+                        </li>
+                        <li><a class="dropdown-item" href="<?= base_url('/admin/claves') ?>"><i class="flaticon-security" aria-hidden="true"></i>
+                                &nbsp;Cambio de clave</a></li>
+                        <li class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="<?= base_url('/logout') ?>"><i class="flaticon-shut-down" aria-hidden="true"></i>
+                                &nbsp;Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
 
-        <!-- -------------------------------------------------------------- -->
-        <!-- End Topbar header -->
-        <!-- -------------------------------------------------------------- -->
-        <!-- -------------------------------------------------------------- -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- -------------------------------------------------------------- -->
-        <!-- -------------------------------------------------------------- -->
-        <!-- Page wrapper  -->
-        <!-- -------------------------------------------------------------- -->
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4 mt-4">
+            <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+            </div>
+
+        </nav>
+
+        <!-- Body Content Wrapper -->
+        <div class="ms-content-wrapper">
+            <div class="row">
+
+                <div class="col-md-12">
                     <?php $this->load->view($contenido); ?>
                 </div>
-            </main>
-            <!-- -------------------------------------------------------------- -->
-            <!-- End PAge Content -->
-            <!-- -------------------------------------------------------------- -->
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        Copyright
-                        © <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <?= getenv('APP_NAME') ?>
-                    </div>
-                </div>
-            </footer>
+            </div>
         </div>
-        <!-- -------------------------------------------------------------- -->
-        <!-- End Page wrapper  -->
-        <!-- -------------------------------------------------------------- -->
+    </main>
+    <!-- -------------------------------------------------------------- -->
+    <!-- End PAge Content -->
+    <!-- -------------------------------------------------------------- -->
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                Copyright
+                © <script>
+                    document.write(new Date().getFullYear())
+                </script>
+                <?= getenv('APP_NAME') ?>
+            </div>
+        </div>
+    </footer>
     </div>
+    <!-- -------------------------------------------------------------- -->
+    <!-- End Page wrapper  -->
+    <!-- -------------------------------------------------------------- -->
+    
     <!-- -------------------------------------------------------------- -->
     <!-- End Wrapper -->
     <!-- -------------------------------------------------------------- -->
     <!-- -------------------------------------------------------------- -->
 
-    <!-- -------------------------------------------------------------- -->
-    <!-- All Required js -->
-    <!-- -------------------------------------------------------------- -->
-    <!-- JavaScript Libraries -->
-    <!--<script src="<?= base_url('public/datatable/js/bootstrap.bundle.min.js') ?>"></script>
 
-    <script src="<?= base_url('public/js/scripts.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/jquery-3.7.0.js') ?>"></script>-->
-    <script src="<?= base_url('public/datatable/js/jquery.dataTables.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/dataTables.bootstrap5.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/dataTables.buttons.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/buttons.bootstrap5.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/responsive.bootstrap5.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/dataTables.responsive.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/jszip.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/pdfmake.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/vfs_fonts.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/buttons.html5.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/buttons.print.min.js') ?>"></script>
-    <script src="<?= base_url('public/datatable/js/buttons.colVis.min.js') ?>"></script>
+
+    <!-- Global Required Scripts End -->
+
+    <!-- Page Specific Scripts Start -->
+    <script src="<?= base_url('public/datatable/js/jquery.datatables.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/datatables.bootstrap4.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/dataTables.buttons.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/datatables.responsive.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/pdfmake.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/jszip.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/buttons.flash.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/buttons.print.min.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/vfs_fonts.js') ?>"> </script>
+    <script src="<?= base_url('public/datatable/js/buttons.html5.min.js') ?>"> </script>
+
+    <!-- Mystic core JavaScript -->
+    <script src="<?= base_url('public/js/framework.js') ?>"></script>
+
+    <!-- Settings -->
+    <script src="<?= base_url('public/js/settings.js') ?>"></script>
+
     <script>
         $(document).ready(function() {
             //$.noConflict();
-            $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-outline-primary';
+            //$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-outline-primary';
+            //$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-outline-light';
             $('#datatablesSimple').DataTable({
                 pageLength: 7,
                 order: [],
@@ -222,10 +263,7 @@
             });
         });
     </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Corporate UI Dashboard: parallax effects, scripts for the example pages etc -->
-    <!--<script src="<?= base_url('public/assets/js/corporate-ui-dashboard.min.js?v=1.0.0') ?>"></script>-->
+
 </body>
 
 </html>

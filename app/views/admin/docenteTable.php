@@ -10,16 +10,15 @@
                 <?= form_open('', array('id' => 'FRM_DATOS', 'class' => 'form-horizontal', 'onsubmit' => 'window.location.reload()')); ?>
 
                 <div class="row pt-3">
-                    <div class="col-md-4 col-lg-4 align-self-center">
-                        <div class="mb-3">
-                            <h5 class="text-dark">Docentes</h5>
-                        </div>
+                    <div class="col-md-5 col-lg-5">
+                        <h1 class="text-dark">Docentes</h1>
                     </div>
-                    <div class="col-md-8 col-lg-8 mx-auto">
-                        <div class="mb-3">
-                            <div class="input-group mb-3">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="form-inline">
 
-                                <?= form_dropdown('career_id', $career, $selectValue, 'class="form-select" id="career_id"'); ?>
+                            <?= form_dropdown('career_id', $career, $selectValue, 'class="form-control" id="career_id"'); ?>
+                            &nbsp;
+                            <div class="input-group">
                                 <button class="btn btn-primary pull-right font-weight-medium mb-0" type="submit">
                                     <!--<i class="ti-search"></i>-->
                                     <i class="fa fa-search"></i>&nbsp;Filtrar por programa
@@ -31,7 +30,6 @@
 
                                 &nbsp;
                                 <a class="btn waves-effect waves-light btn-success pull-right hidden-sm-down" data-toggle="tooltip" data-placement="bottom" title="Crear nuevo registro" href="<?= base_url('/admin/newdocente') ?>">Nuevo usuario&nbsp;&nbsp;<i class="fa fa-plus"></i></a>
-
                             </div>
                         </div>
                     </div>
@@ -40,7 +38,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive p-0">
-                    <table id="datatablesSimple" name="datatablesSimple" class="table display nowrap table-hover table-bordered mb-0 border-top text-sm" style="width:100%">
+                    <table id="datatablesSimple" name="datatablesSimple" class="table table-striped thead-dark w-100 dataTable nowrap no-footer">
                         <thead class="table-dark">
                             <tr>
                                 <th>Cod Usuario</th>
@@ -57,20 +55,20 @@
                         <tbody>
                             <?php foreach ($query as $item) : ?>
                                 <tr class="align-middle">
-                                    <td><?= str_pad($item->id, 5, '0', STR_PAD_LEFT); ?></td>
-                                    <td><?= $item->name . ' ' . $item->paternal_surname . ' ' . $item->maternal_surname ?></td>
-                                    <td><?= $item->document_type_label . ' ' . $item->document_number ?></td>
-                                    <td class="text-center"><?= $item->mobile ?></td>
-                                    <td><?= $item->gender ?></td>
-                                    <td class="text-center"><?= $item->email ?></td>
-                                    <td class="text-center"><?= $item->graduated ?></td>
-                                    <td><?= $item->updated_at ?></td>
-                                    <td>
+                                    <td class="align-middle"><?= str_pad($item->id, 5, '0', STR_PAD_LEFT); ?></td>
+                                    <td class="align-middle"><?= $item->name . ' ' . $item->paternal_surname . ' ' . $item->maternal_surname ?></td>
+                                    <td class="align-middle"><?= $item->document_type_label . ' ' . $item->document_number ?></td>
+                                    <td class="align-middle"><?= $item->mobile ?></td>
+                                    <td class="align-middle"><?= $item->gender ?></td>
+                                    <td class="align-middle"><?= $item->email ?></td>
+                                    <td class="align-middle"><?= $item->graduated ?></td>
+                                    <td class="align-middle"><?= $item->updated_at ?></td>
+                                    <td class="align-middle">
                                         <?php
                                         if ($item->status) {
-                                            echo '<span class="badge bg-light border text-dark">' . $item->flag . '</span>';
+                                            echo '<span class="btn bg-success border text-dark p-2">' . $item->flag . '</span>';
                                         } else {
-                                            echo '<span class="badge bg-danger border text-white">' . $item->flag . '</span>';
+                                            echo '<span class="btn bg-danger border text-white p-2">' . $item->flag . '</span>';
                                         }
                                         ?>
                                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -78,24 +76,24 @@
                                             if ($item->status) {
                                                 echo form_open('admincontroller/enviaPassword');
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                                echo '<button type="submit" name="submit" class="btn btn-outline-info btn-sm display-inline" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enviar contraseña"><i class="fa fa-envelope" style="color:red"></i></button>';
+                                                echo '<button type="submit" name="submit" class="btn btn-outline-info btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Enviar contraseña"><i class="fa fa-envelope" style="color:red"></i></button>';
                                                 echo form_close();
                                                 echo "&nbsp;";
 
                                                 echo form_open('admincontroller/desactivaDocente');
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                                echo '<button type="submit" name="submit" class="btn btn-outline-danger btn-sm display-inline" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Desactivar"><i class="fa fa-eye-slash"></i></button>';
+                                                echo '<button type="submit" name="submit" class="btn btn-outline-danger btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Desactivar"><i class="fa fa-eye-slash"></i></button>';
                                                 echo form_close();
                                             } else {
                                                 //echo '<a class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Activar" href="<?= $item->id>"><i class="fa fa fa-eye"></i></a>';
                                                 echo form_open('admincontroller/activaDocente');
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                                echo '<button type="submit" name="submit" class="btn btn-outline-primary btn-sm display-inline" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Activar"><i class="fa fa-eye"></i></button>';
+                                                echo '<button type="submit" name="submit" class="btn btn-outline-primary btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye"></i></button>';
                                                 echo form_close();
                                             }
                                             ?>
                                             &nbsp;&nbsp;
-                                            <a class="btn btn-outline-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar" href="<?= base_url('/admin/docente/' . $item->id) ?>"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-outline-warning btn-sm" data-toggle="tooltip" data-placement="bottom" title="Editar" href="<?= base_url('/admin/docente/' . $item->id) ?>"><i class="fa fa-edit"></i></a>
                                         </div>
                                     </td>
                                 </tr>

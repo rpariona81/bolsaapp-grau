@@ -17,7 +17,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Registro de convocatoria</h4>
+                <h1 class="card-title">Registro de convocatoria</h1>
             </div>
             <div class="card-body">
                 <?= form_open('admincontroller/creaConvocatoria', array('id' => 'FRM_DATOS', 'class' => 'needs-validation', 'onsubmit' => 'grabar.disabled = true; return true;')); ?>
@@ -53,7 +53,7 @@
                                 <option value="5">Mecatrónica Automotriz</option>
                                 <option value="6">Cosmetología</option>
                             </select>-->
-                            <?=form_dropdown('career_id', $career, set_value('career_id'), 'class="form-select" id="career_id"'); ?>
+                            <?=form_dropdown('career_id', $career, set_value('career_id'), 'class="form-control" id="career_id"'); ?>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="row pt-3">
-                    <div class="col-6 mx-auto">
+                    <div class="col-md-6 mx-auto">
                         <div class="d-md-flex align-items-center mt-3">
                             <a href="<?=base_url('/admin/convocatorias')?>" class="btn btn-danger rounded-pill px-4" type="button">Cancelar</a>
                             &nbsp;&nbsp;

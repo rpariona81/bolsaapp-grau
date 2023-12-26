@@ -1,7 +1,7 @@
 <div class="align-items-md-stretch mt-5 mb-3">
     <div class="card border shadow-xs mb-4">
         <div class="card-header border-bottom pb-0">
-            <h4 class="card-title">Datos del administrador</h4>
+            <h1 class="card-title">Datos del administrador</h1>
         </div>
         <?= my_validation_errors(validation_errors()); ?>
         <div class="card-body">

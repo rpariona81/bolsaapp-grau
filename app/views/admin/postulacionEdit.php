@@ -1,6 +1,6 @@
 <div class="align-items-md-stretch mt-5">
     <div class="card">
-    <div class="card-header">
+        <div class="card-header">
             <h4 class="card-title">Código de postulación: &nbsp;<?= str_pad($postulacion->id, 6, '0', STR_PAD_LEFT) ?></h4>
         </div>
         <div class="card-body">
@@ -8,7 +8,9 @@
                 <strong class="card-title">Código de oferta: &nbsp;<?= str_pad($postulacion->offer_id, 5, '0', STR_PAD_LEFT) ?></strong><br>
             </div>
             <strong class="card-title"><?= $postulacion->title ?></strong><br>
-            <strong class="card-title"><font color="red"><?= $postulacion->employer ?></font></strong><br>
+            <strong class="card-title">
+                <font color="red"><?= $postulacion->employer ?></font>
+            </strong><br>
             <strong class="card-title">Tipo de oferta:</strong> <?= $postulacion->type_offer ?><br>
             <strong>Detalle:</strong> <?= html_entity_decode($postulacion->detail) ?><br>
             <strong>Número de vacantes:</strong> <?= $postulacion->vacancy_numbers ?><br>
@@ -30,19 +32,21 @@
                 <p class='alert alert-success'> <?= $this->session->flashdata('flashSuccess') ?> </p>
             <?php endif ?>
             <?= form_open('admincontroller/resultPostulacion', array('class' => 'row g-4')) ?>
-            <input type="hidden" value="<?= $postulacion->id ?>" name="id" id="id">
-            <div class="col-auto">
-                <strong>Descarga CV:</strong> <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $postulacion->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $postulacion->filecv); ?>">
-                <i class="fa fa-file-pdf-o" title="<?= $postulacion->filecv ?>"></i></a>
+            <div class="form-inline">
+                <input type="hidden" value="<?= $postulacion->id ?>" name="id" id="id">
+                <div class="form-group p-0">
+                    <strong>Descarga CV:</strong>&nbsp; &nbsp;<a class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $postulacion->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $postulacion->filecv); ?>">
+                        <i class="fa fa-file-pdf" title="<?= $postulacion->filecv ?>"></i></a>
+                </div>&nbsp;
+                <div class="form-group">
+                    <?= form_dropdown('result', $result, $postulacion->result, 'class="form-control" id="result"'); ?>
+                </div>&nbsp;
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit"></i>Actualizar estado de postulación</button>
+                    &nbsp;
+                    <a class="btn btn-danger" href="<?= base_url('/admin/postulaciones') ?>">Regresar</a>
+                </div>
             </div>
-            <div class="col-auto">
-                <?=form_dropdown('result', $result, $postulacion->result, 'class="form-select" id="result"'); ?>
-            </div>
-            <div class="col-auto">
-                <button class="btn btn-primary" type="submit"></i>Actualizar estado de postulación</button>
-                <a class="btn btn-danger" href="<?=base_url('/admin/postulaciones')?>">Regresar</a>
-            </div>
-
             <?= form_close() ?>
             <hr>
         </div>

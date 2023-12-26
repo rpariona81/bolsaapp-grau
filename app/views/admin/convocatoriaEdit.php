@@ -1,4 +1,3 @@
-
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
@@ -6,11 +5,11 @@
     <!-- column -->
     <div class="col-12">
         <div class="card">
-        <div class="card-header">
-                <h4 class="card-title">Editar convocatoria</h4>
+            <div class="card-header">
+                <h1 class="card-title">Editar convocatoria</h1>
             </div>
             <div class="card-body">
-                <?= form_open('admincontroller/actualizaConvocatoria', array('class' => 'row g-3 needs-validation')); ?>
+                <?= form_open('admincontroller/actualizaConvocatoria', array('class' => 'needs-validation')); ?>
                 <div class="row pt-3">
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -44,7 +43,7 @@
                                 <option value="5" <?= $convocatoria->career_id == 5 ? ' selected="selected"' : ''; ?>>Mecatrónica Automotriz</option>
                                 <option value="6" <?= $convocatoria->career_id == 6 ? ' selected="selected"' : ''; ?>>Cosmetología</option>
                             </select>-->
-                            <?=form_dropdown('career_id', $career, $convocatoria->career_id, 'class="form-select" id="career_id"'); ?>
+                            <?= form_dropdown('career_id', $career, $convocatoria->career_id, 'class="form-control" id="career_id"'); ?>
                         </div>
                     </div>
                 </div>
@@ -111,9 +110,9 @@
                     </div>
                 </div>
                 <div class="row pt-3">
-                    <div class="col-6 mx-auto">
+                    <div class="col-md-6 mx-auto">
                         <div class="d-md-flex align-items-center mt-3">
-                            <a href="<?=base_url('/admin/convocatorias')?>" class="btn btn-danger rounded-pill px-4" type="button">Cancelar</a>
+                            <a href="<?= base_url('/admin/convocatorias') ?>" class="btn btn-danger rounded-pill px-4" type="button">Cancelar</a>
                             &nbsp;&nbsp;
                             <input class="btn btn-primary pull-right font-weight-medium rounded-pill px-4" type="submit" value="Actualizar convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
                         </div>
