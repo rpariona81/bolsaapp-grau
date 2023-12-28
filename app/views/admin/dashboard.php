@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="float-left text-warning">
-                                <i class="fa fa-users fa-4x"></i>
+                                <i class="fa fa-list-alt fa-4x"></i>
                             </div>
                             <div class="float-right">
                                 <p class="mb-0 text-right">Convocatorias vigentes</p>
@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="float-left text-success">
-                                <i class="fa fa-users fa-4x"></i>
+                                <i class="fa fa-university fa-4x"></i>
                             </div>
                             <div class="float-right">
                                 <p class="mb-0 text-right">Oferta educativa</p>
@@ -67,7 +67,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="float-left text-primary">
-                                <i class="fa fa-users fa-4x"></i>
+                                <i class="fa fa-th-list fa-4x"></i>
                             </div>
                             <div class="float-right">
                                 <p class="mb-0 text-right">Número de postulaciones</p>

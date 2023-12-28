@@ -1,7 +1,7 @@
 <div class="align-items-md-stretch mt-5">
     <div class="card">
-    <div class="card-header">
-            <h4 class="card-title">Actualización de datos</h4>
+        <div class="card-header">
+            <h1 class="card-title">Actualización de datos</h1>
         </div>
         <?= my_validation_errors(validation_errors()); ?>
         <div class="card-body">
@@ -15,7 +15,7 @@
                     <option value="2" <?= $usuario->document_type == 2 ? ' selected="selected"' : ''; ?>>CARNET DE EXTRANJERÍA</option>
                     <option value="3" <?= $usuario->document_type == 3 ? ' selected="selected"' : ''; ?>>PASAPORTE</option>
                 </select>-->
-                <?=form_dropdown('document_type', $document_type, $usuario->document_type, 'class="form-control" id="document_type"'); ?>
+                <?= form_dropdown('document_type', $document_type, $usuario->document_type, 'class="form-control" id="document_type"'); ?>
             </div>
             <div class="col-md-4 p-2">
                 <label for="name" class="form-label">Número de documento</label>
@@ -35,7 +35,7 @@
                     <option value="5" <?= $usuario->career_id == 5 ? ' selected="selected"' : ''; ?>>Mecatrónica Automotriz</option>
                     <option value="6" <?= $usuario->career_id == 6 ? ' selected="selected"' : ''; ?>>Cosmetología</option>
                 </select>-->
-                <?=form_dropdown('career_id', $career, $usuario->career_id, 'class="form-control" id="career_id"'); ?>
+                <?= form_dropdown('career_id', $career, $usuario->career_id, 'class="form-control" id="career_id"'); ?>
             </div>
             <div class="col-md-4 p-2">
                 <label for="name" class="form-label">Nombres (*)</label>
@@ -65,7 +65,7 @@
                     <option value="Femenino" <?= $usuario->gender == 'Femenino' ? ' selected="selected"' : ''; ?>>Femenino</option>
                     <option value="Masculino" <?= $usuario->gender == 'Masculino' ? ' selected="selected"' : ''; ?>>Masculino</option>
                 </select>-->
-                <?=form_dropdown('gender', $gender, $usuario->gender, 'class="form-control" id="gender"'); ?>
+                <?= form_dropdown('gender', $gender, $usuario->gender, 'class="form-control" id="gender"'); ?>
             </div>
             <div class="col-md-2 p-2">
                 <label for="birthdate" class="form-label">Fecha nacimiento (*)</label>
@@ -90,7 +90,7 @@
                     <!--<span class="input-group-text" id="inputGroupPrepend">@</span>-->
                     <input type="password" class="form-control" id="txtPassword" name="password" aria-describedby="inputGroupPrepend" value="<?= base64_decode($usuario->remember_token) ?>" required>
                     <div class="input-group-append">
-                    <button id="show_password" class="btn input-group-text d-block p-0" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        <button id="show_password" class="btn input-group-text d-block p-0" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                     </div>
                     <div class="invalid-feedback">
                         Please choose a username.
@@ -111,7 +111,7 @@
                     <option value="Estudiante" <?= $usuario->graduated == 'Estudiante' ? ' selected="selected"' : ''; ?>>Estudiante</option>
                     <option value="Egresado" <?= $usuario->graduated == 'Egresado' ? ' selected="selected"' : ''; ?>>Egresado</option>
                 </select>-->
-                <?=form_dropdown('graduated', $condEstud, $usuario->graduated, 'class="form-control" id="graduated"'); ?>
+                <?= form_dropdown('graduated', $condEstud, $usuario->graduated, 'class="form-control" id="graduated"'); ?>
             </div>
             <div class="col-md-4 p-2">
                 <label for="email" class="form-label">Correo electrónico (*)</label>
@@ -129,7 +129,7 @@
             </div>
             <div class="col-md-12 p-2">
                 <div class="float-end">
-                    <a href="<?=base_url('/admin/estudiantes')?>" class="btn btn-danger" type="button">Cancelar</a>
+                    <a href="<?= base_url('/admin/estudiantes') ?>" class="btn btn-danger" type="button">Cancelar</a>
                     <input class="btn btn-primary" type="submit" value="Actualizar datos"></input>
                 </div>
             </div>
@@ -152,96 +152,96 @@
 </script>
 
 <script>
-        $(document).ready(function () {
-            $("#document_number").keydown(function (e) {
-                if (e.keyCode === 13 || e.keyCode === 193)
-                    document.getElementById('document_number').focus();
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                    // Allow: Ctrl+A, Command+A
-                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                    // Allow: home, end, left, right, down, up
-                    (e.keyCode >= 35 && e.keyCode <= 40)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-            
-            $("#mobile").keydown(function (e) {
-                if (e.keyCode === 13 || e.keyCode === 193)
-                    document.getElementById('mobile').focus();
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                    // Allow: Ctrl+A, Command+A
-                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                    // Allow: home, end, left, right, down, up
-                    (e.keyCode >= 35 && e.keyCode <= 40)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-            
-            $("#name").keydown(function (e) {
-                if (e.keyCode === 13 || e.keyCode === 193)
-                    document.getElementById('name').focus();
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                    // Allow: Ctrl+A, Command+A
-                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                    // Allow: home, end, left, right, down, up
-                    (e.keyCode >= 35 && e.keyCode <= 40)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-            
-            $("#paternal_surname").keydown(function (e) {
-                if (e.keyCode === 13 || e.keyCode === 193)
-                    document.getElementById('paternal_surname').focus();
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                    // Allow: Ctrl+A, Command+A
-                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                    // Allow: home, end, left, right, down, up
-                    (e.keyCode >= 35 && e.keyCode <= 40)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-
-            $("#maternal_surname").keydown(function (e) {
-                if (e.keyCode === 13 || e.keyCode === 193)
-                    document.getElementById('maternal_surname').focus();
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                    // Allow: Ctrl+A, Command+A
-                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                    // Allow: home, end, left, right, down, up
-                    (e.keyCode >= 35 && e.keyCode <= 40)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-
+    $(document).ready(function() {
+        $("#document_number").keydown(function(e) {
+            if (e.keyCode === 13 || e.keyCode === 193)
+                document.getElementById('document_number').focus();
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
         });
-    </script>
+
+        $("#mobile").keydown(function(e) {
+            if (e.keyCode === 13 || e.keyCode === 193)
+                document.getElementById('mobile').focus();
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $("#name").keydown(function(e) {
+            if (e.keyCode === 13 || e.keyCode === 193)
+                document.getElementById('name').focus();
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $("#paternal_surname").keydown(function(e) {
+            if (e.keyCode === 13 || e.keyCode === 193)
+                document.getElementById('paternal_surname').focus();
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $("#maternal_surname").keydown(function(e) {
+            if (e.keyCode === 13 || e.keyCode === 193)
+                document.getElementById('maternal_surname').focus();
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.keyCode >= 48 && e.keyCode <= 57) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+    });
+</script>

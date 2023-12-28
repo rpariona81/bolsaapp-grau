@@ -1,7 +1,7 @@
 <div class="align-items-md-stretch mt-5">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Nuevo usuario</h4>
+            <h1 class="card-title">Nuevo usuario</h1>
         </div>
         <?= my_validation_errors(validation_errors()); ?>
         <div class="card-body">
